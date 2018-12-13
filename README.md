@@ -4,7 +4,7 @@
 - Cloned from github/gustav/realtime_object_detection [Link Base Repository](https://github.com/GustavZ/realtime_object_detection)
 - This is for TX2 realtime camera 2Dlidar fusion but if you just want to use camera you can.
 - I used TX2 on board camera. If you want to use that also, see below *Using TX2 on board cam*.
-- If you want to use this, first you need to calibration your cam and lidar. About calibration, you can see in Using **2D Lidar** section.
+- If you want to use this, first you need to calibration your cam and lidar. About calibration, you can see in **Using 2D Lidar** section.
 
 ## Setup:
 - JetPack 3.1
