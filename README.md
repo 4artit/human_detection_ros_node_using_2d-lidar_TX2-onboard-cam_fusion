@@ -1,4 +1,4 @@
-# ROS Package for github/4artit/realtime_object_detection_with_sensor_fusion
+# ROS Package for human_detection_with_sensor_fusion
 
 ## About
 - Cloned from github/gustav/realtime_object_detection [Link Base Repository](https://github.com/GustavZ/realtime_object_detection)
