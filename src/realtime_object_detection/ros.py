@@ -46,8 +46,8 @@ class FusionPublisher(object):
                     ymax = ymax*600
                     xmax = xmax*600
                     box = RegionOfInterest()
-                    box.x_offset = xmin + (xmax-xmin)/2.0
-                    box.y_offset = ymin + (ymax-ymin)/2.0
+                    box.x_offset = np.abs(xmin + (xmax-xmin)/2.0)
+                    box.y_offset = np.abs(ymin + (ymax-ymin)/2.0)
                     box.height = ymax - ymin
                     box.width = xmax - xmin
                     box.do_rectify = True
@@ -59,20 +59,20 @@ class FusionPublisher(object):
                             valid_points.append([points[j][0], points[j][1]])
                         j = j + 1
                     ### KNN CODE
-                    #if len(valid_points) >= 6:
-                    #    dist, x, y = get_center_from_KNN(valid_points)
-                    #    if dist[0] < dist[1]:
-                    #        ang = np.arctan2(y[0], -x[0]) * (180 / np.pi)
-                    #        msg.distance.append(dist[0])
-                    #        msg.angle.append(ang)
-                    #        dists.append(dist[0])
-                    #        angles.append(ang)
-                    #    else:
-                    #        ang = np.arctan2(y[1], -x[1]) * (180 / np.pi)
-                    #        msg.distance.append(dist[1])
-                    #        msg.angle.append(ang)
-                    #        dists.append(dist[1])
-                    #        angles.append(ang)
+                    if len(valid_points) >= 6:
+                        dist, x, y = get_center_from_KNN(valid_points)
+                        if dist[0] < dist[1]:
+                            ang = np.arctan2(y[0], -x[0]) * (180 / np.pi)
+                            msg.distance.append(dist[0])
+                            msg.angle.append(ang)
+                            dists.append(dist[0])
+                            angles.append(ang)
+                        else:
+                            ang = np.arctan2(y[1], -x[1]) * (180 / np.pi)
+                            msg.distance.append(dist[1])
+                            msg.angle.append(ang)
+                            dists.append(dist[1])
+                            angles.append(ang)
 
                     ### N-points CODE(9)
                     #if len(valid_points) >= 9:
@@ -83,12 +83,12 @@ class FusionPublisher(object):
                     #    angles.append(ang)
 
                     ### DBSCAN CODE
-                    if len(valid_points) >= 4:
-                        dist, ang = get_center_from_DBSCAN(valid_points)
-                        msg.distance.append(dist)
-                        msg.angle.append(ang)
-                        dists.append(dist)
-                        angles.append(ang)
+                    #if len(valid_points) >= 6:
+                    #    dist, ang = get_center_from_DBSCAN(valid_points)
+                    #    msg.distance.append(dist)
+                    #    msg.angle.append(ang)
+                    #    dists.append(dist)
+                    #    angles.append(ang)
 
                     ###
                     else:

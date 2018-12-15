@@ -41,9 +41,9 @@
 ## Clustering
 - You can use 3 kinds of method.(KNN, DBSCAN, get Mean point form N points)
 - line61 ~ line93 in ros.py has the code. So if you want to use different method, comment or uncomment here.
-- Default is DBSCAN.
+- Default is KNN.
 
+## Result
 
-
-**Will add result soon**
+![result](./asset/realtime_fusion.gif)
 
