@@ -5,7 +5,7 @@ import numpy as np
 kmeans = KMeans(n_clusters=2, random_state = 0, n_init=3, max_iter=15)
 dbs = DBSCAN(eps=1, min_samples=2)
 
-def get_center_from_KNN(valid_points):
+def get_center_from_KMeans(valid_points):
     kmeans.fit(np.asarray(valid_points))
     x = kmeans.cluster_centers_[:,0]
     y = kmeans.cluster_centers_[:,1]

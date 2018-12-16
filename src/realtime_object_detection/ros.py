@@ -2,7 +2,7 @@ import rospy
 from cv_bridge import CvBridge, CvBridgeError
 from objdetection.msg import Detection, Object, Segmentation, Fusion
 from sensor_msgs.msg import RegionOfInterest, Image, LaserScan
-from realtime_object_detection.clustering import get_center_from_KNN, get_center_from_mid_points, get_center_from_DBSCAN
+from realtime_object_detection.clustering import get_center_from_KMeans, get_center_from_mid_points, get_center_from_DBSCAN
 import numpy as np
 
 ### CONSTANT INDEX
@@ -60,7 +60,7 @@ class FusionPublisher(object):
                         j = j + 1
                     ### KNN CODE
                     if len(valid_points) >= 6:
-                        dist, x, y = get_center_from_KNN(valid_points)
+                        dist, x, y = get_center_from_KMeans(valid_points)
                         if dist[0] < dist[1]:
                             ang = np.arctan2(y[0], -x[0]) * (180 / np.pi)
                             msg.distance.append(dist[0])
