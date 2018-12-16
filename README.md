@@ -39,7 +39,7 @@
 - And you have to change *ROS_INPUT* as */bottom/camera/image_raw* when you are changing *config.sample.yml*.
 
 ## Clustering
-- You can use 3 kinds of method.(K-Means, DBSCAN, get Mean point form N points)
+- You can use 3 kinds of method.(K-Means, DBSCAN, get min point form N points)
 - line61 ~ line93 in ros.py has the code. So if you want to use different method, comment or uncomment here.
 - Default is K-Means.
 
