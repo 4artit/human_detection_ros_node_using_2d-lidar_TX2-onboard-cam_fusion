@@ -45,5 +45,11 @@
 
 ## Result
 
+* HOW TO PROJECT POINTS
+
+  ![mid_result](./asset/result2.gif)
+
+* **TOTAL RESULT**
+
 ![result](./asset/realtime_fusion.gif)
 
